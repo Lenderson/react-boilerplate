@@ -4,6 +4,17 @@ module.exports = {
     es6: true,
     node: true,
   },
+  overrides: [
+    {
+      files: [
+        "**/*.spec.js",
+        "**/*.spec.jsx",
+      ],
+      env: {
+        jest: true
+      }
+    }
+  ],
   extends: [
     'plugin:react/recommended',
     'airbnb',
