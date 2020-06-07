@@ -37,6 +37,7 @@ module.exports = {
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'react/jsx-filename-extension': [1, { 'extensions': ['.js', '.jsx'] }],
+    'react/jsx-props-no-spreading': [1, { 'custom': 'ignore' }],
     'comma-dangle': [ 'error', 'only-multiline' ],
     'import/extensions': 'off',
     'import/prefer-default-export': 0,
