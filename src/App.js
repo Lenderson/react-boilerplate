@@ -1,30 +1,31 @@
 import React from 'react'
-import logo from './logo.svg'
 import './App.css'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit
-          {' '}
-          <code>src/App.js</code>
-          {' '}
-          and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  )
-}
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from 'react-router-dom'
 
-export default App
+import routes from './routes'
+
+const RouteWithSubRoutes = (route) => (
+  <Route
+    path={route.path}
+    render={(props) => (
+      <route.component {...props} routes={route.routes} />
+    )}
+  />
+)
+
+export default () => (
+  <div className="App">
+    <Router>
+      <Switch>
+        {routes.map((route) => (
+          <RouteWithSubRoutes key={route.name} {...route} />
+        ))}
+      </Switch>
+    </Router>
+  </div>
+)
