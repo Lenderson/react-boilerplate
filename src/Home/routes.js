@@ -1,9 +1,9 @@
-import Home from './views/Home'
+import { lazy } from 'react'
 
 export default [
   {
     path: '/',
-    component: Home,
+    component: lazy(() => import('./views/Home')),
     name: 'home',
     exact: true
   }
