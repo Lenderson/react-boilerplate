@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import './App.scss'
 
 import {
@@ -21,11 +21,13 @@ const RouteWithSubRoutes = (route) => (
 export default () => (
   <div className="App">
     <Router>
-      <Switch>
-        {routes.map((route) => (
-          <RouteWithSubRoutes key={route.name} {...route} />
-        ))}
-      </Switch>
+      <Suspense fallback={<div />}>
+        <Switch>
+          {routes.map((route) => (
+            <RouteWithSubRoutes key={route.name} {...route} />
+          ))}
+        </Switch>
+      </Suspense>
     </Router>
   </div>
 )
